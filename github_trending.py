@@ -1,7 +1,6 @@
 import requests
 from datetime import date, timedelta
 
-
 REPOS_TO_SHOW = 20
 API_URL = 'https://api.github.com'
 FRESH_REPOS_LIFETIME = 7  # days
@@ -13,10 +12,6 @@ def get_trending_repositories(top_size):
     parameters = {'q': 'created:>%s' % search_time_delta, 'sort': 'stars', 'order': 'desc', 'per_page': top_size}
     repos_list_response = requests.get(API_URL + api_method, params=parameters)
     return repos_list_response.json()['items']
-
-
-def get_open_issues_amount(repo_owner, repo_name):  # should be deprecated in this case, i guess (^^)
-    pass
 
 if __name__ == '__main__':
 
