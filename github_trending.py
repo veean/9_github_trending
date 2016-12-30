@@ -3,12 +3,12 @@ from datetime import date, timedelta
 
 REPOS_TO_SHOW = 20
 API_URL = 'https://api.github.com'
-FRESH_REPOS_LIFETIME = 7  # days
+REPOS_LIFETIME = 7
 
 
 def get_trending_repositories(top_size):
     api_method = '/search/repositories'
-    search_time_delta = date.today() - timedelta(days=FRESH_REPOS_LIFETIME)
+    search_time_delta = date.today() - timedelta(days=REPOS_LIFETIME)
     parameters = {'q': 'created:>%s' % search_time_delta, 'sort': 'stars', 'order': 'desc', 'per_page': top_size}
     repos_list_response = requests.get(API_URL + api_method, params=parameters)
     return repos_list_response.json()['items']
