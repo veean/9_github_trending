@@ -18,6 +18,6 @@ if __name__ == '__main__':
     print("Top {} interesting repositories created during last week ".format(REPOS_TO_SHOW))
     repos_list = get_trending_repositories(REPOS_TO_SHOW)
     for repo in repos_list:
-        print('Repository:{} \n'.format(repo['full_name']), 'Link:{} \n'.format(repo['html_url']),
+        print('Repository: {} \n'.format(repo['full_name']), 'Link:{} \n'.format(repo['html_url']),
               'Stars: {} \n'.format(repo['stargazers_count']),
               'Issues: {}'.format(repo['open_issues_count']))
